@@ -58,6 +58,31 @@ The following preprocessing steps were performed:
 - Split data into training and testing sets
 
 ---
+## How to Run
+
+1. Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Open Jupyter Notebook
+
+```bash
+jupyter notebook
+```
+
+4. Run:
+
+```text
+Semiconductor_Wafer_Fault_Prediction.ipynb
+```
 
 ## Models Implemented
 
@@ -206,35 +231,6 @@ images/
 ├── class_distribution.png
 ├── nn_before_fix.png
 └── nn_after_fix.png
-```
-
----
-
-## How to Run
-
-1. Clone the repository
-
-```bash
-git clone <repository-url>
-```
-
-2. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-3. Open Jupyter Notebook
-
-```bash
-jupyter notebook
-```
-
-4. Run:
-
-```text
-Semiconductor_Wafer_Fault_Prediction.ipynb
-```
 
 ---
 
