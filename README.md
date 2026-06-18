@@ -170,11 +170,7 @@ A threshold sweep was performed to analyze the precision-recall tradeoff.
 
 ### Selected Threshold
 
-**Threshold = 0.20**
-
-This threshold achieved the highest F1-score for the failure class and was selected as the final operating point.
-
----
+**Threshold = 0.20** While the model achieves its peak balanced F1-score at a threshold of `0.20`, in a real factory deployment we may choose to preferably use a lower threshold like **`0.05`** so that the recall is higher. In a semiconductor manufacturing setup, maximizing recall ensures we don't miss actual defective wafers, which is significantly more critical to the business than handling minor false alarms.
 
 ## Key Findings
 
