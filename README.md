@@ -160,18 +160,19 @@ The default classification threshold of 0.5 resulted in poor failure detection.
 
 A threshold sweep was performed to analyze the precision-recall tradeoff.
 
-| Threshold | Precision (Fail) | Recall (Fail) | F1 (Fail) |
-|------------|------------|------------|------------|
-| 0.05 | 0.08 | 0.76 | 0.15 |
-| 0.10 | 0.15 | 0.62 | 0.25 |
-| 0.15 | 0.15 | 0.33 | 0.21 |
-| 0.20 | 0.24 | 0.29 | 0.26 |
-| 0.25 | 0.29 | 0.19 | 0.23 |
+| Threshold | Precision (Fail) | Recall (Fail) | F1-Score (Fail) | Operational Impact |
+| :--- | :--- | :--- | :--- | :--- |
+| **0.05** | `0.09` | **`0.81`** | **`0.16`** | 🎯 **Selected Point:** Catches 17/21 defects. Highly protective. |
+| **0.10** | `0.08` | `0.38` | `0.14` | Misses more than half of the defective wafers. |
+| **0.15** | `0.11` | `0.24` | `0.15` | Poor coverage; lets 16 defects slip through. |
+| **0.20** | `0.10` | `0.10` | `0.10` | ❌ **Dangerous:** Completely blind to 90% of faults. |
+| **0.25** | `0.17` | `0.10` | `0.12` | Ineffective; model cannot clear this boundary. |
 
 ### Selected Threshold
 
-**Threshold = 0.20** While the model achieves its peak balanced F1-score at a threshold of `0.20`, in a real factory deployment we may choose to preferably use a lower threshold like **`0.05`** so that the recall is higher. In a semiconductor manufacturing setup, maximizing recall ensures we don't miss actual defective wafers, which is significantly more critical to the business than handling minor false alarms.
+**Threshold = 0.05** For the final deployment, **0.05** was selected as the optimal operational threshold. At this setting, the model achieves its highest failure-class F1-score (`0.16`) and a powerful **Recall of `0.81`**, successfully flagging 17 out of the 21 actual defective wafers in the test set. 
 
+In a semiconductor fabrication environment, the financial penalty of letting a broken wafer sneak past quality control is incredibly high. Setting the threshold to `0.05` prioritizes strict defect containment, ensuring high manufacturing safety while minimizing expensive customer Escapes.
 ## Key Findings
 
 - Semiconductor manufacturing data contains many missing values and highly imbalanced labels.
