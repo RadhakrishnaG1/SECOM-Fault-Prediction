@@ -193,7 +193,7 @@ Tested multiple classification thresholds to evaluate the trade-off between prec
 
 ### Selected Threshold
 
-**Threshold = 0.05** For the final deployment, **0.05** was selected as the optimal operational threshold. At this setting, the model achieves its highest failure-class F1-score (`0.16`) and a powerful **Recall of `0.81`**, successfully flagging 17 out of the 21 actual defective wafers in the test set. 
+**Threshold = 0.05** For the final deployment, **0.05** was selected as the optimal operational threshold. At this setting, the model achieves its highest failure-class F1-score (`0.16`) and a very high **Recall of `0.81`**, successfully flagging 17 out of the 21 actual defective wafers in the test set. 
 
 In a semiconductor fabrication environment, missing a defective wafer costs far more than managing false alarms. Lowering the threshold to 0.05 prioritizes finding faults early to avoid passing defective products through final quality control.
 ## Key Findings
