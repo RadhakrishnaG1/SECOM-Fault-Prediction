@@ -170,8 +170,10 @@ L2 regularization and early stopping reduced overfitting and improved generaliza
 | **Improved Neural Network (Threshold = 0.05)** | `0.43` | `0.09` | **`0.81`** | **`0.16`** |
 
 ### Key Observation
-Although the initial unregularized neural network achieved a high overall accuracy score (`0.92`), it was completely blind to real-world faults, capturing a microscopic **5%** of actual failures. By implementing deep regularization and shifting our decision boundary to **0.05**, we intentionally traded off global accuracy to secure a powerful **81% defect detection rate (Recall)**, delivering a far safer and more cost-effective model for manufacturing environments.
-This demonstrates that accuracy alone can be misleading when working with highly imbalanced datasets.
+
+While the baseline neural network showed a high overall accuracy of `0.92`, it failed on the minority class, only catching **5%** of actual defects (Recall = 0.05). This highlights why global accuracy is a misleading metric for highly imbalanced datasets. 
+
+By applying L2 regularization, early stopping, and shifting the decision threshold to **0.05**, the model's defect detection rate increased to **81%**. In a manufacturing context, trading off overall accuracy to maximize recall is preferred because the cost of missing a defective wafer is significantly higher than managing a false alarm.
 
 ---
 
