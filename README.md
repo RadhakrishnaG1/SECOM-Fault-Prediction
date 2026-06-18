@@ -181,21 +181,21 @@ This demonstrates that accuracy alone can be misleading when working with highly
 
 The default classification threshold of 0.5 resulted in poor failure detection.
 
-A threshold sweep was performed to analyze the precision-recall tradeoff.
+Tested multiple classification thresholds to evaluate the trade-off between precision and recall.
 
-| Threshold | Precision (Fail) | Recall (Fail) | F1-Score (Fail) | Operational Impact |
+| Threshold | Precision (Fail) | Recall (Fail) | F1-Score (Fail) | Operational Outcome |
 | :--- | :--- | :--- | :--- | :--- |
-| **0.05** | `0.09` | **`0.81`** | **`0.16`** | 🎯 **Selected Point:** Catches 17/21 defects. Highly protective. |
-| **0.10** | `0.08` | `0.38` | `0.14` | Misses more than half of the defective wafers. |
-| **0.15** | `0.11` | `0.24` | `0.15` | Poor coverage; lets 16 defects slip through. |
-| **0.20** | `0.10` | `0.10` | `0.10` | ❌ **Dangerous:** Completely blind to 90% of faults. |
-| **0.25** | `0.17` | `0.10` | `0.12` | Ineffective; model cannot clear this boundary. |
+| **0.05** | `0.09` | **`0.81`** | **`0.16`** | Selected. Detects 17 out of 21 defects. |
+| **0.10** | `0.08` | `0.38` | `0.14` | Detects 8 out of 21 defects. |
+| **0.15** | `0.11` | `0.24` | `0.15` | Detects 5 out of 21 defects. |
+| **0.20** | `0.10` | `0.10` | `0.10` | Detects 2 out of 21 defects. |
+| **0.25** | `0.17` | `0.10` | `0.12` | Detects 2 out of 21 defects. |
 
 ### Selected Threshold
 
 **Threshold = 0.05** For the final deployment, **0.05** was selected as the optimal operational threshold. At this setting, the model achieves its highest failure-class F1-score (`0.16`) and a powerful **Recall of `0.81`**, successfully flagging 17 out of the 21 actual defective wafers in the test set. 
 
-In a semiconductor fabrication environment, the financial penalty of letting a broken wafer sneak past quality control is incredibly high. Setting the threshold to `0.05` prioritizes strict defect containment, ensuring high manufacturing safety while minimizing expensive customer Escapes.
+In a semiconductor fabrication environment, missing a defective wafer costs far more than managing false alarms. Lowering the threshold to 0.05 prioritizes finding faults early to avoid passing defective products through final quality control.
 ## Key Findings
 
 - Semiconductor manufacturing data contains many missing values and highly imbalanced labels.
@@ -231,7 +231,7 @@ images/
 ├── class_distribution.png
 ├── nn_before_fix.png
 └── nn_after_fix.png
-
+```
 ---
 
 ## Future Improvements
