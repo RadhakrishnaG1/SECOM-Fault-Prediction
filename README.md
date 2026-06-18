@@ -1,5 +1,3 @@
-# SECOM-Fault-Prediction
-Neural network based semiconductor wafer fault prediction using the SECOM manufacturing dataset, with overfitting analysis, regularization, and threshold optimization.
 # Semiconductor Wafer Fault Prediction using Neural Networks
 
 Predicting semiconductor wafer failures using manufacturing sensor data from the SECOM dataset. This project explores data preprocessing, neural networks, overfitting analysis, regularization, and threshold optimization for defect detection in semiconductor fabrication processes.
